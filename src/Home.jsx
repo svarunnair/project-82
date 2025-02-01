@@ -6,6 +6,7 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -21,6 +22,7 @@ const Home = () => {
       {/* Search Bar */}
       <View style={styles.searchBar}>
         <MaterialIcons name="search" size={24} color="#888" />
+        <TextInput style={{borderWidth:2,}}/>
         <Text style={styles.searchPlaceholder}>Search for courses...</Text>
       </View>
 
