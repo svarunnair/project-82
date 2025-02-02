@@ -7,10 +7,17 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import {WIDTH} from '../constants/dimensions'
+import ShowToast from '../components/ShowToast'
 
 const Home = () => {
+
+  const handlePress =()=>{
+    ShowToast("Haiiiiiii")
+  }
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -22,8 +29,8 @@ const Home = () => {
       {/* Search Bar */}
       <View style={styles.searchBar}>
         <MaterialIcons name="search" size={24} color="#888" />
-        <TextInput style={{borderWidth:2,}}/>
-        <Text style={styles.searchPlaceholder}>Search for courses...</Text>
+        <TextInput placeholder="Search Subject" placeholderTextColor="grey" style={{ borderWidth: .2, width: WIDTH*.75 }} />
+      
       </View>
 
       {/* Categories */}
@@ -33,30 +40,30 @@ const Home = () => {
         showsHorizontalScrollIndicator={false}
         style={styles.categoriesContainer}
       >
-        <TouchableOpacity style={styles.categoryCard}>
+        <TouchableOpacity style={styles.categoryCard} onPress={handlePress}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.categoryImage}
           />
           <Text style={styles.categoryText}>Math</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryCard}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.categoryImage}
           />
           <Text style={styles.categoryText}>Science</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryCard}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.categoryImage}
           />
           <Text style={styles.categoryText}>History</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryCard}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.categoryImage}
           />
           <Text style={styles.categoryText}>Art</Text>
@@ -68,7 +75,7 @@ const Home = () => {
       <View style={styles.featuredCoursesContainer}>
         <TouchableOpacity style={styles.courseCard}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.courseImage}
           />
           <Text style={styles.courseTitle}>Introduction to Algebra</Text>
@@ -76,7 +83,7 @@ const Home = () => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.courseCard}>
           <Image
-            source={require("../assets/images/icon.png")}
+            source={require("../../assets/images/icon.png")}
             style={styles.courseImage}
           />
           <Text style={styles.courseTitle}>Physics 101</Text>
