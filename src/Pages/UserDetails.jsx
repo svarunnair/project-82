@@ -18,7 +18,7 @@ const UserDetails = () => {
   const navigation = useNavigation()
 
   const handleSubmit = () => {
-    navigation.navigate("Home")
+    navigation.navigate("HomeTabNav");
     console.log("Name:", name);
     console.log("Class:", userClass);
     console.log("Language:", language);

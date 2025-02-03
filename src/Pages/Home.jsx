@@ -8,16 +8,34 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  FlatList,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import {WIDTH} from '../constants/dimensions'
 import ShowToast from '../components/ShowToast'
 
-const Home = () => {
+
+const Home = (props) => {
 
   const handlePress =()=>{
     ShowToast("Haiiiiiii")
   }
+
+  console.log("...props.subData....", props.subData);
+
+  const renderData = ({ item }) => (
+    <TouchableOpacity style={styles.subBox}>
+      <Image
+        style={{ width: WIDTH*.88, height:150,borderRadius:5 }}
+        source={require("../../assets/images/icon.png")}
+      />
+      <Text style={{ color: "black" }}>{item.name}</Text>
+      <Text style={{ color: "black" }}>{item.class}</Text>
+    </TouchableOpacity>
+  );
+
+
+
   return (
     <ScrollView style={styles.container}>
       {/* Header */}
@@ -71,25 +89,23 @@ const Home = () => {
       </ScrollView>
 
       {/* Featured Courses */}
+
+
+
       <Text style={styles.sectionTitle}>Featured Courses</Text>
-      <View style={styles.featuredCoursesContainer}>
-        <TouchableOpacity style={styles.courseCard}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.courseImage}
-          />
-          <Text style={styles.courseTitle}>Introduction to Algebra</Text>
-          <Text style={styles.courseInstructor}>By John Doe</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.courseCard}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.courseImage}
-          />
-          <Text style={styles.courseTitle}>Physics 101</Text>
-          <Text style={styles.courseInstructor}>By Jane Smith</Text>
-        </TouchableOpacity>
-      </View>
+
+
+
+      <FlatList
+      data={props.subData}
+      renderItem={renderData}
+      />
+
+
+
+
+
+    
     </ScrollView>
   );
 };
@@ -165,6 +181,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#888",
   },
+  subBox:{
+    borderWidth:1,
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    borderRadius:4,
+    padding:3
+    
+  }
 });
 
 export default Home;
