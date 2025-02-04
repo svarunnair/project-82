@@ -3,41 +3,37 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   Image,
   TouchableOpacity,
   TextInput,
-  Alert,
   FlatList,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import {WIDTH} from '../constants/dimensions'
-import ShowToast from '../components/ShowToast'
-
+import { WIDTH } from "../constants/dimensions";
+import ShowToast from "../components/ShowToast";
 
 const Home = (props) => {
-
-  const handlePress =()=>{
-    ShowToast("Haiiiiiii")
-  }
+  const handlePress = () => {
+    ShowToast("Haiiiiiii");
+  };
 
   console.log("...props.subData....", props.subData);
 
   const renderData = ({ item }) => (
     <TouchableOpacity style={styles.subBox}>
       <Image
-        style={{ width: WIDTH*.88, height:150,borderRadius:5 }}
-        source={require("../../assets/images/icon.png")}
+        style={styles.courseImage}
+        source={require("../../assets/images/subjects/maths.png")}
       />
-      <Text style={{ color: "black" }}>{item.name}</Text>
-      <Text style={{ color: "black" }}>{item.class}</Text>
+      <View style={{ display: "flex",}}>
+        <Text style={styles.courseTitle}>{item.name}</Text>
+        <Text style={styles.courseChapters}> Chapters : {item.chapters}</Text>
+      </View>
     </TouchableOpacity>
   );
 
-
-
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>EduLearn</Text>
@@ -47,66 +43,24 @@ const Home = (props) => {
       {/* Search Bar */}
       <View style={styles.searchBar}>
         <MaterialIcons name="search" size={24} color="#888" />
-        <TextInput placeholder="Search Subject" placeholderTextColor="grey" style={{ borderWidth: .2, width: WIDTH*.75 }} />
-      
+        <TextInput
+          placeholder="Search Subject"
+          placeholderTextColor="grey"
+          style={styles.searchInput}
+        />
       </View>
 
-      {/* Categories */}
-      <Text style={styles.sectionTitle}>Categories</Text>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.categoriesContainer}
-      >
-        <TouchableOpacity style={styles.categoryCard} onPress={handlePress}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Math</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Science</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>History</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryCard}>
-          <Image
-            source={require("../../assets/images/icon.png")}
-            style={styles.categoryImage}
-          />
-          <Text style={styles.categoryText}>Art</Text>
-        </TouchableOpacity>
-      </ScrollView>
-
       {/* Featured Courses */}
-
-
-
       <Text style={styles.sectionTitle}>Featured Courses</Text>
 
-
-
       <FlatList
-      data={props.subData}
-      renderItem={renderData}
+        data={props.subData}
+        renderItem={renderData}
+        keyExtractor={(item, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.flatListContainer}
       />
-
-
-
-
-
-    
-    </ScrollView>
+    </View>
   );
 };
 
@@ -135,61 +89,46 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginBottom: 20,
   },
-  searchPlaceholder: {
-    marginLeft: 10,
-    color: "#888",
+  searchInput: {
+    borderWidth: 0,
+    width: WIDTH * 0.75,
+    marginLeft: 8,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
   },
-  categoriesContainer: {
-    marginBottom: 20,
+  flatListContainer: {
+    paddingBottom: 20,
   },
-  categoryCard: {
-    alignItems: "center",
-    marginRight: 15,
-  },
-  categoryImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  categoryText: {
-    marginTop: 5,
-    fontSize: 14,
-    fontWeight: "500",
-  },
-  featuredCoursesContainer: {
-    marginBottom: 20,
-  },
-  courseCard: {
+  subBox: {
+    width: WIDTH * 0.9, // 90% of screen width
+    backgroundColor: "#f9f9f9",
+    borderRadius: 10,
+    padding: 12,
+    // alignItems: "center",
+    alignSelf: "center", // Centers each item
     marginBottom: 15,
+    elevation: 3, // Adds shadow effect
   },
   courseImage: {
     width: "100%",
     height: 150,
-    borderRadius: 10,
+    borderRadius: 8,
   },
   courseTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    marginTop: 5,
+    color: "#000",
+    marginTop: 8,
+    textAlign: "left",
   },
-  courseInstructor: {
+  courseChapters: {
     fontSize: 14,
-    color: "#888",
+    color: "#666",
+    marginTop: 4,
   },
-  subBox:{
-    borderWidth:1,
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    borderRadius:4,
-    padding:3
-    
-  }
 });
 
 export default Home;
