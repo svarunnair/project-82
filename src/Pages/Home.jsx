@@ -11,16 +11,22 @@ import {
 import { MaterialIcons } from "@expo/vector-icons";
 import { WIDTH } from "../constants/dimensions";
 import ShowToast from "../components/ShowToast";
+import { useNavigation } from "expo-router";
 
 const Home = (props) => {
-  const handlePress = () => {
-    ShowToast("Haiiiiiii");
-  };
+  
+  const navigation = useNavigation()
+
+  const handleSubject =(i)=>{
+    navigation.navigate("ChapterContainer",{subject:i});
+  }
 
   console.log("...props.subData....", props.subData);
 
   const renderData = ({ item }) => (
-    <TouchableOpacity style={styles.subBox}>
+    <TouchableOpacity
+    onPress={()=>handleSubject(item)}
+     style={styles.subBox}>
       <Image
         style={styles.courseImage}
         source={require("../../assets/images/subjects/maths.png")}

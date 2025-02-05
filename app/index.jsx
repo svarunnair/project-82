@@ -7,6 +7,7 @@ import SingnUp from '../src/Pages/SignUp'
 import UserDetails from "../src/Pages/UserDetails";
 import SplashScreen from "../src/components/SplashScreen";
 import HomeTabNav from "../src/Pages/HomeTabNav";
+import ChapterContainer from "../src/Containers/ChapterContainer";
 
 
 const index = () => {
@@ -41,6 +42,7 @@ const index = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="UserDetails" component={UserDetails} />
         <Stack.Screen name="HomeTabNav" component={HomeTabNav} />
+        <Stack.Screen name="ChapterContainer" component={ChapterContainer} />
       </Stack.Navigator>
     </>
   );
