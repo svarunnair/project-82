@@ -16,7 +16,7 @@ const Chapters = ({ subject, dataChapt }) => {
     const navigation = useNavigation()
 
     const handleChapter = (item, index) => {
-      navigation.navigate("SubDivisionCont", { Chapter: item, index: index });
+      navigation.navigate("IntroContainer", { Chapter: item, index: index });
     };
 
   return (
