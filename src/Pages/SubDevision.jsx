@@ -2,10 +2,16 @@ import { View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import Navbar from "../components/NavBar";
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "expo-router";
 
 const SubDivision = (props) => {
+  console.log('object')
+  const navigation = useNavigation()
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.innerBox}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("ClassRmContainer")}
+      style={styles.innerBox}
+    >
       <Text style={styles.text}>{item}</Text>
     </TouchableOpacity>
   );

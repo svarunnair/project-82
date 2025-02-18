@@ -4,9 +4,9 @@ import IntroPage from '../Pages/IntroPage'
 
 const IntroContainer = ({route}) => {
      const { Chapter, index } = route.params;
-  return (
-    <IntroPage/>
-  )
+  return <IntroPage 
+   Chapter={Chapter}
+   index={index} />;
 }
 
 export default IntroContainer

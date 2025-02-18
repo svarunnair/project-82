@@ -10,6 +10,7 @@ import HomeTabNav from "../src/Pages/HomeTabNav";
 import ChapterContainer from "../src/Containers/ChapterContainer";
 import SubDivisionCont from "../src/Containers/SubDivisionCont";
 import IntroContainer from "../src/Containers/IntroContainer";
+import ClassRmContainer from "../src/Containers/ClassRmContainer";
 
 
 const index = () => {
@@ -47,6 +48,7 @@ const index = () => {
         <Stack.Screen name="ChapterContainer" component={ChapterContainer} />
         <Stack.Screen name="SubDivisionCont" component={SubDivisionCont} />
         <Stack.Screen name="IntroContainer" component={IntroContainer} />
+        <Stack.Screen name="ClassRmContainer" component={ClassRmContainer} />
       </Stack.Navigator>
     </>
   );
