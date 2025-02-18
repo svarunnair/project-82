@@ -7,6 +7,7 @@ import { useNavigation } from "expo-router";
 const SubDivision = (props) => {
   console.log('object')
   console.log("")
+  console.log('object')
   const navigation = useNavigation()
   const renderItem = ({ item }) => (
     <TouchableOpacity
