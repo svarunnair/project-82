@@ -3,13 +3,18 @@ import React, { useRef, useState } from 'react'
 import NavBar from '../components/NavBar';
 import * as ScreenOrientation from 'expo-screen-orientation'
 import {Video} from "expo-av"
-import { WIDTH } from '../constants/dimensions';
+import { HEIGHT, WIDTH } from '../constants/dimensions';
 
-const ClassRmPage = () => {
+const ClassRmPage = (props) => {
     
     const video = useRef(null)
     const [status, setStatus] = useState({})
     const[orientationIsLandscape, setOrientationIsLandscape] = useState(true)
+
+    // const videoArray = Object.values(props.videoData);
+    const videoData = props.videoData[0]?.video_file;
+
+    console.log("..))))___-videoData____...", videoData);
 
     const changeScreenOrientation =async()=>{
         if(orientationIsLandscape){
@@ -31,17 +36,24 @@ const ClassRmPage = () => {
     <View style={styles.container}>
       <NavBar />
 
-      <View style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <Video 
-        ref={video} 
-        style={styles.video} 
-        source={require("../../assets/videos/video_2023-12-01_14-35-24.mp4")}
-        useNativeControls
-        resizeMode='contain'
-        onPlaybackStatusUpdate={status=>setStatus(()=>status)}/>
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Video
+          ref={video}
+          style={styles.video}
+          source={{ uri: videoData }} 
+          useNativeControls
+          resizeMode="contain"
+          onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+        />
       </View>
 
-      <Button title="Change" onPress={toggleOrientation} />
+      {/* <Button title="Change" onPress={toggleOrientation} /> */}
     </View>
   );
 }
@@ -59,7 +71,8 @@ const styles = StyleSheet.create({
   video:{
     borderWidth:1,
     borderColor:"red",
-    height:200,
+    height:HEIGHT*.5,
     width:WIDTH*.8,
+    elevation:2
   }
 });

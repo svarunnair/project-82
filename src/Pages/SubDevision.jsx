@@ -9,6 +9,8 @@ const SubDivision = (props) => {
   console.log("")
   console.log('object')
   const navigation = useNavigation()
+
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       onPress={() => navigation.navigate("ClassRmContainer")}
