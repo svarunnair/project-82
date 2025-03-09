@@ -51,6 +51,15 @@ const ClassRmPage = (props) => {
           resizeMode="contain"
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
+
+        {/* <Video
+          source={{ uri: videoData }}
+          style={styles.video}
+          controls={true} // Show built-in controls (play, pause, etc.)
+          resizeMode="contain"
+          paused={false}
+          
+        /> */}
       </View>
 
       {/* <Button title="Change" onPress={toggleOrientation} /> */}

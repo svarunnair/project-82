@@ -1,4 +1,5 @@
 
+import ShowToast from "../components/ShowToast";
 import { BASE_URL } from "./server";
 import axios from "axios";
 
@@ -30,7 +31,7 @@ export const getNodeData = async (url, requestData = {}, token = null ,headers=n
     if (axios.isAxiosError(error)) {
             if (error.message === 'Network Error') {
               console.error('Network Error:', error);
-              showToast('Network Error', 'Please check your internet connection.')
+              ShowToast('Network Error', 'Please check your internet connection.')
               return { error: 'Network Error. Please check your internet connection.' };
             }
   }

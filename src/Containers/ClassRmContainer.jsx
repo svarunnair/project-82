@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import ClassRmPage from '../Pages/ClassRmPage'
 import {getNodeData} from '../constants/config.js'
+import ShowToast from '../components/ShowToast'
 
 
 
@@ -32,7 +33,7 @@ const ClassRmContainer = () => {
         setVideoData(response)
 
         if (response?.statusCode !== 200) {
-            showToast(response?.message);
+            ShowToast(response?.message);
             setIsLoading(false);
             
         }

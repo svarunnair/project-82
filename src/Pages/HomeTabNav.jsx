@@ -3,7 +3,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons"; // Import icons from Expo
 import HomeContainers from "../Containers/HomeContainers";
-import DiscussionRoom from "../Pages/DiscussionRoom";
+import DiscussionRmContainer from "../Containers/DiscussionRmContainer";
 import Profile from "../Pages/Profile";
 
 const Tab = createBottomTabNavigator();
@@ -18,7 +18,7 @@ const HomeTabNav = () => {
 
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "DiscussionRoom") {
+          } else if (route.name === "DiscussionRmContainer") {
             iconName = focused ? "chatbubbles" : "chatbubbles-outline";
           } else if (route.name === "Profile") {
             iconName = focused ? "person" : "person-outline";
@@ -34,7 +34,7 @@ const HomeTabNav = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeContainers} />
-      <Tab.Screen name="DiscussionRoom" component={DiscussionRoom} />
+      <Tab.Screen name="DiscussionRmContainer" component={DiscussionRmContainer} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
