@@ -9,6 +9,7 @@ import ShowToast from '../components/ShowToast'
 const ClassRmContainer = () => {
 
   const [videoData, setVideoData] = useState("")
+  const [chatText,setChatText] = useState("")
 
 
   useEffect(()=>{
@@ -47,8 +48,11 @@ const ClassRmContainer = () => {
 
 
 
-  return <ClassRmPage 
-  videoData={videoData} />;
+  return (
+    <ClassRmPage setChatText={setChatText}
+     videoData={videoData} 
+    chatText ={chatText}/>
+  );
 }
 
 export default ClassRmContainer
