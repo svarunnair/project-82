@@ -24,7 +24,7 @@ const ClassRmContainer = () => {
     try {
         // const nodeToken = await getNodeToken();
         const response = await getNodeData(
-          `videos`,
+          `videos/1/1`,
           {}
           // nodeToken,
           // { user: props.nodeUserData.user }

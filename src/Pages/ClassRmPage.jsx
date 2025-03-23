@@ -69,14 +69,14 @@ const ClassRmPage = (props) => {
           <Text style={{ color: "black", textAlign: "center" }}>Ask me</Text>
         </TouchableOpacity>
 
-        {/* <Video
+         {/* <Video
           source={{ uri: videoData }}
           style={styles.video}
           controls={true} // Show built-in controls (play, pause, etc.)
           resizeMode="contain"
           paused={false}
           
-        /> */}
+        />  */}
       </View>
 
       <Modal
