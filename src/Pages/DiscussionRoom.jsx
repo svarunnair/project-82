@@ -10,6 +10,7 @@ import {
 import ChatNavBar from "../components/ChatNavBar";
 import { WIDTH } from "../constants/dimensions";
 import Icon from "react-native-vector-icons/FontAwesome";
+import LoadingModel from '../constants/Loading'
 
 const DiscussionRoom = (props) => {
  
@@ -17,6 +18,8 @@ const DiscussionRoom = (props) => {
   return (
     <>
       <ChatNavBar />
+
+      <LoadingModel loading={props.isLoading} />
 
       <View
         style={{

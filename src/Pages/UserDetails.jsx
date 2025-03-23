@@ -6,14 +6,15 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import { Picker } from "@react-native-picker/picker"; // Import Picker
+import { Picker } from "@react-native-picker/picker"; 
 import { useNavigation } from "expo-router";
 
 const UserDetails = () => {
   const [name, setName] = useState("");
   const [userClass, setUserClass] = useState("");
-  const [language, setLanguage] = useState("english"); // Default value
+  const [language, setLanguage] = useState("english"); 
   const [syllabus, setSyllabus] = useState("NCRTC");
+  const [classSelected, setClassSelected] = useState("10");
 
   const navigation = useNavigation()
 
@@ -36,12 +37,32 @@ const UserDetails = () => {
         onChangeText={setName}
       />
 
-      <TextInput
+      <View style={styles.pickerContainer}>
+        <Picker
+          selectedValue={classSelected}
+          onValueChange={(itemValue) => setClassSelected(itemValue)}
+          style={styles.picker}
+        >
+          <Picker.Item label="10" value="10" />
+          <Picker.Item
+            label="9  (coming soon...)"
+            value="9"
+            style={{ backgroundColor: "#d7d7d7" }}
+          />
+          <Picker.Item
+            label="8  (coming soon...)"
+            value="8"
+            style={{ backgroundColor: "#d7d7d7" }}
+          />
+        </Picker>
+      </View>
+
+      {/* <TextInput
         style={styles.input}
         placeholder="Class"
         value={userClass}
         onChangeText={setUserClass}
-      />
+      /> */}
 
       <View style={styles.pickerContainer}>
         <Picker
@@ -64,8 +85,6 @@ const UserDetails = () => {
           <Picker.Item label="CBSE" value="cbse" />
         </Picker>
       </View>
-
-    
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Submit</Text>
