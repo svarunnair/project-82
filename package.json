@@ -20,6 +20,8 @@
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/stack": "^7.1.1",
+    "@react-three/drei": "^9.75.0",
+    "@react-three/fiber": "^8.13.0",
     "axios": "^1.4.0",
     "expo": "~52.0.28",
     "expo-av": "^15.0.2",
@@ -37,6 +39,7 @@
     "expo-system-ui": "~4.0.7",
     "expo-three": "^8.0.0",
     "expo-web-browser": "~14.0.2",
+    "r3f-native-orbitcontrols": "^1.0.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.6",
@@ -49,7 +52,8 @@
     "react-native-vector-icons": "^10.2.0",
     "react-native-video": "^6.10.2",
     "react-native-web": "~0.19.13",
-    "react-native-webview": "13.12.5"
+    "react-native-webview": "13.12.5",
+    "three": "^0.166.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
