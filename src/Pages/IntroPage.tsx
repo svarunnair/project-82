@@ -45,9 +45,8 @@ const IntroPage = (props:any) => {
         >
           {/* Lights should be outside of Suspense */}
           <Environment preset="sunset" />
-          <ambientLight intensity={0.2} />
+          <ambientLight intensity={0.07} />
           <directionalLight position={[3, 2, 5]} intensity={0.5} />{" "}
-          {/* Add more light sources if needed */}
           <Suspense fallback={null}>
             {/* <Character /> */}
             <Teacher />

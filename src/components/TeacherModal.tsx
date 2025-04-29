@@ -29,6 +29,7 @@ type GLTFResult = GLTF & {
 }
 
 export default function Teacher(props: JSX.IntrinsicElements['group']) {
+  
   const { nodes, materials } = useGLTF(
     require('../../assets/Teacher_Pilla.glb')
   ) as GLTFResult
